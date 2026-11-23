@@ -143,3 +143,26 @@
   addEventListener('resize', req);
   frame();
 })();
+
+/* floating WhatsApp on phones: shows after the first screen, steps aside when another WhatsApp button or the book is on screen */
+(() => {
+  let fab = document.querySelector('.wafab');
+  if (!fab) {
+    fab = document.createElement('a');
+    fab.className = 'wafab';
+    fab.textContent = 'واتساب 💬';
+    const msg = document.body.dataset.wa || 'أهلًا 🤍 عايزة أعرف لو تاريخ فرحي متاح. التاريخ: ... والمكان: ...';
+    fab.href = 'https://wa.me/201024724578?text=' + encodeURIComponent(msg);
+    document.body.appendChild(fab);
+  }
+  const blockers = new Set();
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => e.isIntersecting ? blockers.add(e.target) : blockers.delete(e.target));
+    upd();
+  });
+  document.querySelectorAll('a[href*="wa.me"]:not(.wafab), .flipbook, .veil-intro, .dp-wa, .ts-wa')
+    .forEach(el => { if (!el.closest('nav')) io.observe(el); });
+  function upd() { fab.classList.toggle('show', scrollY > innerHeight * .8 && blockers.size === 0); }
+  addEventListener('scroll', upd, { passive: true });
+  upd();
+})();
