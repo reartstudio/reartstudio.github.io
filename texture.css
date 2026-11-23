@@ -1,0 +1,42 @@
+/* Premium surfaces: paper on the light pages, linen on cards, film grain on the dark ones, gold hairlines.
+   Tiles are 320px seamless WebP (assets/tx_*.webp), drawn over the existing colours, so nothing else changes. */
+:root{
+  --tx-paper:url(assets/tx_paper.webp);
+  --tx-linen:url(assets/tx_linen.webp);
+  --tx-grain:url(assets/tx_grain.webp);
+  --hair:linear-gradient(90deg,transparent,rgba(165,126,82,.55) 20%,rgba(226,185,122,.9) 50%,rgba(165,126,82,.55) 80%,transparent);
+}
+
+/* light paper */
+body,.taste,.packages,.ts-tabs{background-image:var(--tx-paper);background-size:320px}
+.taste,.packages{background-blend-mode:normal}
+
+/* linen cards */
+.card,.plan:not(.hot),details,.voices figure,.steps>div,.parts div,.flip .front,.ch:not(.dark),.quiz,.custom,.ts-card,.ch .meta b{
+  background-image:var(--tx-linen);background-size:320px}
+.card:not(.flip),.plan:not(.hot),.voices figure,.steps>div,.ch:not(.dark),.quiz{
+  box-shadow:0 1px 0 rgba(255,255,255,.7) inset,0 18px 40px -28px rgba(43,35,32,.35)}
+
+/* dark film grain + soft vignette */
+.hero{background:var(--tx-grain) 0 0/320px,radial-gradient(120% 90% at 80% 0%,#4a3b33 0,#2B2320 50%,#17110e 100%)}
+.closing,.dayplan,footer,.plan.hot,.tier12,.deliv,.ch.dark,.flip .back{
+  background-image:var(--tx-grain),radial-gradient(130% 100% at 50% 0%,rgba(255,236,210,.06),rgba(0,0,0,.22));background-size:320px,100% 100%}
+
+/* gold hairline between light sections */
+section+section:not(.dayplan):not(.closing):not(.taste):not(.packages){position:relative}
+section+section:not(.dayplan):not(.closing):not(.taste):not(.packages)::before{
+  content:"";position:absolute;top:0;left:50%;translate:-50% 0;width:min(560px,70%);height:1px;background:var(--hair)}
+.taste,.packages{border-color:transparent;position:relative}
+.taste::before,.packages::before,.taste::after,.packages::after{
+  content:"";position:absolute;left:50%;translate:-50% 0;width:min(760px,82%);height:1px;background:var(--hair)}
+.taste::before,.packages::before{top:0}.taste::after,.packages::after{bottom:0}
+
+/* kicker: thin gold rule + diamond before the label */
+.kicker::before{content:"";display:inline-block;width:26px;height:1px;background:currentColor;opacity:.65;vertical-align:middle;margin-inline-end:10px}
+.kicker::after{content:"";display:inline-block;width:5px;height:5px;background:currentColor;opacity:.75;rotate:45deg;vertical-align:middle;margin-inline-start:10px}
+
+/* photos get a fine ivory edge */
+.hero .stack img,.ts-photo{outline:1px solid rgba(243,212,185,.22);outline-offset:-1px}
+
+/* gold buttons: a little satin */
+.btn.gold{background-image:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,0) 55%),var(--tx-linen);background-size:100% 100%,320px}

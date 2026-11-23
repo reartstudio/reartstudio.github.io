@@ -224,5 +224,14 @@ footer .grow{flex:1}
 .deliv .tag{font:600 12px "IBM Plex Sans Arabic";letter-spacing:3px;color:var(--gold2)}.deliv p{margin:6px 0 0;font-size:18px}
 .bprice{margin:16px 0 0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .bprice b{font:700 40px Amiri,serif}.bprice s{color:var(--muted);font-size:22px}.bprice span{font-size:14px;color:var(--gold);font-weight:600}
-.wafab{position:fixed;bottom:16px;inset-inline-start:16px;z-index:20;display:none;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:13px 20px;border-radius:99px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
+.wafab{position:fixed;bottom:16px;inset-inline-start:16px;z-index:20;display:none;background:#736B49;color:#FBF7F0;border:1px solid rgba(243,212,185,.35);text-decoration:none;font-weight:700;padding:13px 20px;border-radius:99px;box-shadow:0 10px 24px -10px rgba(0,0,0,.5)}
 @media(max-width:760px){.wafab{display:inline-flex;opacity:0;translate:0 18px;pointer-events:none;transition:opacity .35s ease,translate .35s ease}.wafab.show{opacity:1;translate:0 0;pointer-events:auto}}
+/* mobile nav: logo on one side, CTA + menu grouped on the other, same height */
+@media(max-width:760px){
+  nav .wrap{gap:10px;height:60px}
+  nav .logo img{height:30px;display:block}
+  nav .btn{margin-inline-start:auto;height:40px;display:inline-flex;align-items:center;padding:0 16px;font-size:13px;line-height:1;white-space:nowrap}
+  .menubtn{width:40px;height:40px;padding:0;display:grid;place-items:center;border-radius:999px;font-size:17px}
+  nav .links.open{top:60px}
+}
+@media(max-width:760px){.js .ribbon-progress{top:60px}}

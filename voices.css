@@ -1,0 +1,19 @@
+/* Bride feedback: one row side by side that slides by itself, so it feels like many.
+   Phone: one card and a peek of the next. Wide screen: three at a time. */
+.voices{columns:auto;display:flex;gap:18px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
+  scrollbar-width:none;padding:8px 2px 22px;margin-top:30px;outline:none;
+  -webkit-mask-image:linear-gradient(to left,#000 86%,transparent);mask-image:linear-gradient(to left,#000 86%,transparent)}
+.voices::-webkit-scrollbar{display:none}
+.voices figure{flex:0 0 calc((100% - 36px) / 3);margin:0;scroll-snap-align:start;display:flex;flex-direction:column}
+.voices figure blockquote{flex:1}
+@media(max-width:900px){.voices figure{flex-basis:calc((100% - 18px) / 2)}}
+@media(max-width:600px){.voices{gap:14px}.voices figure{flex-basis:82%}.voices blockquote{font-size:20px}}
+
+/* the card that just arrived turns in like a page */
+.voices figure.now{animation:vflip .7s cubic-bezier(.2,.7,.2,1)}
+@keyframes vflip{from{transform:perspective(900px) rotateY(-28deg);opacity:.55}to{transform:none;opacity:1}}
+
+.vdots{display:flex;justify-content:center;gap:7px;margin-top:4px}
+.vdots i{width:7px;height:7px;border-radius:99px;background:var(--line);transition:width .35s ease,background .35s ease}
+.vdots i.on{width:22px;background:var(--gold)}
+@media(prefers-reduced-motion:reduce){.voices figure.now{animation:none}}

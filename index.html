@@ -19,11 +19,13 @@
 <link rel="icon" href="assets/logo_brown.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=14">
+<link rel="stylesheet" href="style.css?v=16">
 <link rel="stylesheet" href="interact.css?v=3">
 <link rel="stylesheet" href="dayplan.css?v=1">
-<link rel="stylesheet" href="taste.css?v=6">
+<link rel="stylesheet" href="taste.css?v=8">
 <link rel="stylesheet" href="curtain.css?v=4">
+<link rel="stylesheet" href="voices.css?v=1">
+<link rel="stylesheet" href="texture.css?v=1">
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -73,14 +75,15 @@
   <span class="kicker">BRIDE FEEDBACK</span>
   <h2>اللي عاشوا اليوم ده قبلك</h2>
   <p class="lead">من رسايل عرايس بعد فرحهم، زي ما بعتوها.</p>
-  <div class="voices">
+  <div class="voices" role="region" aria-label="رسايل العرايس" tabindex="0">
+    <figure class="en"><blockquote>I'm overwhelmed and speechless… The whole team is <b>amazing</b>. Thank you so much.</blockquote><figcaption>دينا</figcaption></figure>
     <figure><blockquote>حقيقي مش مجاملة… حسّستنا إنه يوم مهم بالنسبالك، وكنت خايف عليه. ولو رجع الزمن، <b>هنختارك تاني</b>.</blockquote><figcaption>عروسة</figcaption></figure>
     <figure><blockquote>شخصية محترمة فوق الوصف. اتأخرت عن معادي ساعتين، وهو جه في معاده بالظبط… وكان <b>صبور جدًا</b>. ومستوى الصور يحكي الباقي.</blockquote><figcaption>عروسة · من فيسبوك</figcaption></figure>
     <figure><blockquote>التعامل لوحده بيدّي جو حلو في اللوكيشن، <b>ضحك وهزار</b>… شكرًا على اليوم الجميل.</blockquote><figcaption>عروسة · من فيسبوك</figcaption></figure>
     <figure><blockquote>مش عارفة أشكرك إزاي على تعبك، وإزاي خلّيت يومنا وفرحتنا <b>بروح حلوة</b> وصور جميلة.</blockquote><figcaption>هبة</figcaption></figure>
     <figure><blockquote>عايزة أشكرك جدًا على الصور الحلوة… مبسوطة بيهم أوي، و<b>حبيت كل حاجة فيهم</b>.</blockquote><figcaption>عروسة</figcaption></figure>
-    <figure class="en"><blockquote>I'm overwhelmed and speechless… The whole team is <b>amazing</b>. Thank you so much.</blockquote><figcaption>دينا</figcaption></figure>
   </div>
+  <div class="vdots" aria-hidden="true"></div>
 </div></section>
 <section id="day"><div class="wrap">
   <span class="kicker">يومك</span>
@@ -122,11 +125,6 @@
         <div class="ts-panel" data-k="groom" hidden><p class="ts-say">«هو بس <b>عايز ياخدها ويروّح</b> 😅»</p><p class="ts-why">ماسك إيدها وخلاص… والصور؟ بعدين.</p></div>
         <div class="ts-panel" data-k="you" hidden><p class="ts-say">لكن إحنا بنهتم <b>انتي عايزة إيه</b>… ونعمله.</p>
           <p class="ts-why">ومش لازم تقرري دلوقتي… اختيارك ده بنقعد نتناقش فيه سوا <b>بعد الفرح</b>، واحنا بنعدّل صورك.</p>
-          <div class="ts-mix">
-            <label>نعومة<input type="range" name="makeup" min="0" max="100" value="40"><output></output></label>
-            <label>لمعة الفستان<input type="range" name="dress" min="0" max="100" value="35"><output></output></label>
-            <label>أخضر وخشب<input type="range" name="photog" min="0" max="100" value="30"><output></output></label>
-          </div>
           <div class="ts-cta"><a class="btn gold ts-wa" href="#" target="_blank" rel="noopener">ابعتيلنا زوقك على الواتساب</a></div></div>
       </div>
       <p class="ts-note">الصورة لموديل متخيّلة معمولة بالذكاء الاصطناعي للتوضيح.</p>
@@ -226,7 +224,8 @@
 <a class="wafab" href="https://wa.me/201024724578?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%20%F0%9F%A4%8D%20%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B9%D8%B1%D9%81%20%D9%84%D9%88%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D9%81%D8%B1%D8%AD%D9%8A%20%D9%85%D8%AA%D8%A7%D8%AD.%20%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%3A%20...%20%D9%88%D8%A7%D9%84%D9%85%D9%83%D8%A7%D9%86%3A%20...">واتساب 💬</a>
 <script src="curtain.js?v=2"></script>
 <script src="dayplan.js?v=1"></script>
-<script src="taste.js?v=4"></script>
+<script src="taste.js?v=6"></script>
 <script src="interact.js?v=4"></script>
+<script src="voices.js?v=2"></script>
 </body>
 </html>

@@ -38,7 +38,7 @@
 .ts-panel{animation:qin .45s ease}
 @media(prefers-reduced-motion:reduce){.ts-photo img{transition:none}.ts-panel{animation:none}}
 /* groom: walking away, then the drone catches him running off with her */
-.ts-photo img.groom2{z-index:3;opacity:0;transition:opacity .9s ease}
+.ts-photo img.groom2{z-index:3;opacity:0;transition:opacity .45s ease}
 .ts-photo[data-k=groom] img.groom2.on{opacity:1}
 /* phone: tabs sit above the photo so she sees it change when she taps */
 @media(max-width:860px){
@@ -50,3 +50,6 @@
   .ts-card{order:3;margin-top:4px;min-height:0}
   .ts-note{order:4;margin-top:0}
 }
+/* her tab: words only, no photo */
+.taste[data-k=you] .ts-photo,.taste[data-k=you] .ts-note{display:none}
+.taste[data-k=you] .ts-grid{grid-template-columns:1fr;max-width:640px;margin-inline:auto}
