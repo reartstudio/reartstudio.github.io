@@ -1,0 +1,110 @@
+/* Book page intro: the guide lies on a studio table under a warm lamp and its pages turn as she scrolls. */
+.flipbook{display:none}
+.js .flipbook{display:block;position:relative;height:520vh;padding:0;--W:min(40vw,calc((100svh - 65px) * .34));--shift:1;--spine:0;--glow:0}
+.flipbook .pin{position:sticky;top:65px;height:calc(100svh - 65px);overflow:hidden;
+  background:linear-gradient(180deg,#221a16 0%,#2B2320 38%,#1a1310 100%)}
+
+/* the room: back wall, table edge, lamp pool, drifting dust */
+.flipbook .wall{position:absolute;inset:0 0 34% 0;
+  background:linear-gradient(180deg,#2a211c,#33281f 70%,#2b221c)}
+.flipbook .wall::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(226,185,122,.18)}
+.flipbook .table{position:absolute;left:-10%;right:-10%;bottom:0;height:34%;
+  background:repeating-linear-gradient(92deg,#3a2a20 0 7px,#35261d 7px 15px,#3d2c21 15px 26px),#382820;
+  transform:perspective(800px) rotateX(38deg);transform-origin:top center}
+.flipbook .table::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(10,6,4,.65))}
+.flipbook .lamp{position:absolute;left:50%;top:-30%;width:120vmax;height:120vmax;transform:translateX(-50%);pointer-events:none;
+  background:radial-gradient(closest-side,rgba(255,214,150,.30),rgba(255,200,130,.12) 45%,transparent 70%);
+  opacity:calc(.75 + var(--glow) * .25);mix-blend-mode:screen}
+.flipbook .dust{position:absolute;inset:0;pointer-events:none}
+.flipbook .dust i{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,230,190,.55);
+  animation:fbdust linear infinite;opacity:0}
+@keyframes fbdust{0%{transform:translate(0,0);opacity:0}15%{opacity:.8}85%{opacity:.6}100%{transform:translate(var(--dx),-28vh);opacity:0}}
+
+/* the book */
+.flipbook .stage{position:absolute;left:0;right:0;top:46%;transform:translateY(-50%);display:grid;place-items:center;perspective:2400px}
+.flipbook .book{position:relative;width:calc(var(--W) * 2);height:calc(var(--W) * 1.25);transform-style:preserve-3d;
+  transform:translateX(calc(var(--shift) * var(--W) * .5)) rotateX(16deg)}
+.flipbook .shadow{position:absolute;left:4%;right:4%;bottom:-9%;height:18%;border-radius:50%;
+  background:rgba(8,4,2,.75);filter:blur(22px);transform:translateZ(-2px)}
+.flipbook .block{position:absolute;top:0;bottom:0;width:50%;background:#f4f6f8;border-radius:3px;
+  box-shadow:0 2px 0 #d9cbb2,0 4px 0 #cdbd9f,0 6px 0 #c3b293,0 8px 0 #b7a585}
+.flipbook .block.l{left:0}
+.flipbook .block.r{right:0;opacity:calc((1 - var(--shift)) * 4)}
+.flipbook .end{position:absolute;left:0;top:0;bottom:0;width:50%;padding:7% 8%;
+  display:flex;flex-direction:column;justify-content:center;text-align:center;color:#2B2320;
+  background:linear-gradient(90deg,#eef3f8,#ffffff 80%,#e3eaf2);border-radius:3px;overflow:hidden}
+.flipbook .end .latin{font-size:calc(var(--W) * .085);color:#2f5f9e}
+.flipbook .end h3{font-size:calc(var(--W) * .11);margin:6px 0 10px;color:#1E3A5F}
+.flipbook .end p{font-size:calc(var(--W) * .048);color:#6E5A4B;margin:0 0 14px;line-height:1.6}
+.flipbook .end .btn{align-self:center;font-size:calc(var(--W) * .048);padding:.7em 1.3em}
+
+.flipbook .leaf{position:absolute;left:0;top:0;width:50%;height:100%;transform-style:preserve-3d;transform-origin:right center;
+  transform:translateZ(var(--z,0px)) rotateY(var(--a,0deg))}
+.flipbook .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;overflow:hidden;border-radius:3px;background:#fbf7f0}
+.flipbook .face img{width:100%;height:100%;object-fit:cover;display:block}
+.flipbook .face.back{transform:rotateY(180deg)}
+/* lamp light falls across each page; darker as the page turns away */
+.flipbook .face::after{content:"";position:absolute;inset:0;pointer-events:none}
+.flipbook .face.front::after{background:linear-gradient(90deg,rgba(255,236,200,.10),transparent 40%,rgba(40,25,15,.22) 100%),
+  rgba(30,18,10,var(--shade,0))}
+.flipbook .face.back::after{background:linear-gradient(270deg,rgba(255,236,200,.10),transparent 40%,rgba(40,25,15,.22) 100%),
+  rgba(30,18,10,var(--shadeb,0))}
+.flipbook .leaf.cover .face.front{box-shadow:inset 0 0 0 1px rgba(165,126,82,.5)}
+.flipbook .spine{position:absolute;left:50%;top:0;bottom:0;width:12%;margin-left:-6%;pointer-events:none;transform:translateZ(3px);
+  background:linear-gradient(90deg,transparent,rgba(30,18,10,.28) 45%,rgba(30,18,10,.38) 50%,rgba(30,18,10,.28) 55%,transparent);
+  opacity:calc(1 - var(--shift))}
+
+/* captions under the book */
+.flipbook .caps{position:absolute;left:0;right:0;bottom:7%;text-align:center;color:#F4E8D6;pointer-events:none}
+.flipbook .cap{position:absolute;left:0;right:0;bottom:0;opacity:0;transform:translateY(10px);transition:opacity .5s,transform .5s}
+.flipbook .cap.on{opacity:1;transform:none}
+.flipbook .cap .k{display:block;font:600 12px "IBM Plex Sans Arabic";letter-spacing:3px;color:#E2B97A;margin-bottom:6px}
+.flipbook .cap b{font:700 clamp(24px,3.4vw,40px)/1.2 Amiri,serif}
+.flipbook .hint{position:absolute;top:4%;left:0;right:0;text-align:center;font:italic 500 clamp(18px,2vw,24px) "Cormorant Garamond",serif;
+  color:#E2B97A;opacity:calc(var(--shift) * 1.2)}
+.flipbook .hint span{font:500 14px "IBM Plex Sans Arabic";color:#CDBBA3;display:block;font-style:normal}
+.flipbook .count{position:absolute;bottom:3%;left:0;right:0;display:flex;gap:8px;justify-content:center}
+.flipbook .count i{width:22px;height:2px;background:rgba(226,185,122,.25);transition:background .3s}
+.flipbook .count i.on{background:#E2B97A}
+
+@media(max-width:760px){
+  .js .flipbook{--W:min(47vw,calc((100svh - 65px) * .36))}
+  .flipbook .book{transform:translateX(calc(var(--shift) * var(--W) * .5)) rotateX(10deg)}
+  .flipbook .stage{top:42%}
+}
+@media(prefers-reduced-motion:reduce){
+  .flipbook .dust{display:none}
+  .js .flipbook{height:auto}
+  .flipbook .pin{position:relative;top:0}
+}
+
+/* hand controls: drag, tap, arrows, curled corner */
+.flipbook .book{touch-action:pan-y;cursor:grab}
+.flipbook .book.dragging{cursor:grabbing}
+.flipbook .curl{position:absolute;left:0;bottom:0;width:calc(var(--W) * var(--curl,0));aspect-ratio:1;pointer-events:none;
+  transform:translateZ(60px);transition:width .25s ease;
+  background:linear-gradient(45deg,transparent 50%,#e9edf2 50%,#ffffff 62%,#d5dce4 100%);
+  box-shadow:4px -4px 10px -6px rgba(0,0,0,.45);border-top-right-radius:4px}
+.flipbook .nav{position:absolute;top:46%;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;border:1px solid rgba(226,185,122,.5);
+  background:rgba(43,35,32,.55);color:#E2B97A;font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;z-index:4;transition:background .2s,opacity .2s}
+.flipbook .nav:hover{background:rgba(226,185,122,.2)}
+.flipbook .nav:focus-visible{outline:2px solid #E2B97A;outline-offset:3px}
+.flipbook .nav[disabled]{opacity:.25;cursor:default}
+.flipbook .nav.next{left:4vw}.flipbook .nav.prev{right:4vw}
+.flipbook .tip{position:absolute;top:calc(4% + 54px);left:0;right:0;text-align:center;font-size:13px;color:#a8957f;opacity:calc(var(--shift) * 1.2)}
+@media(max-width:760px){.flipbook .nav{top:auto;bottom:15%;transform:none;width:40px;height:40px}.flipbook .tip{display:none}}
+@media(max-width:760px){.js .flipbook{height:380vh}}
+
+/* phone: single page, full width, turns away one page at a time */
+.flipbook.single .book{width:var(--W);height:calc(var(--W) * 1.25);transform:rotateX(8deg)}
+.flipbook.single .leaf{width:100%}
+.flipbook.single .block.l{width:100%}
+.flipbook.single .end{width:100%;font-size:inherit}
+.flipbook.single .end .latin{font-size:calc(var(--W) * .075)}
+.flipbook.single .end h3{font-size:calc(var(--W) * .1)}
+.flipbook.single .end p{font-size:calc(var(--W) * .045)}
+.flipbook.single .end .btn{font-size:calc(var(--W) * .045)}
+@media(max-width:760px){
+  .js .flipbook.single{--W:min(78vw,calc((100svh - 65px) * .52));height:520vh}
+  .flipbook.single .stage{top:44%}
+}

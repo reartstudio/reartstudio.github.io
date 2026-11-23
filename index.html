@@ -12,15 +12,36 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@1,500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=12">
+<link rel="stylesheet" href="interact.css?v=3">
+<link rel="stylesheet" href="dayplan.css?v=1">
+<link rel="stylesheet" href="taste.css?v=6">
+<link rel="stylesheet" href="curtain.css?v=4">
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
 <nav><div class="wrap">
   <a class="logo" href="index.html" aria-label="RE ArtStudio"><img src="assets/logo_brown.png" alt="RE ArtStudio"></a>
-  <div class="links" id="menu"><a href="#voices">آراء العرايس</a><a href="#how">إزاي بنشتغل</a><a href="packages.html">الباكدجات</a><a href="book.html">دليل العروسة</a><a href="#faq">أسئلتك</a></div>
+  <div class="links" id="menu"><a href="#voices">آراء العرايس</a><a href="#how">إزاي بنشتغل</a><a href="#plan">جدول يومك</a><a href="packages.html">الباكدجات</a><a href="book.html">دليل العروسة</a><a href="#faq">أسئلتك</a></div>
   <a class="btn" href="https://wa.me/201024724578?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%20%F0%9F%A4%8D%20%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B9%D8%B1%D9%81%20%D9%84%D9%88%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D9%81%D8%B1%D8%AD%D9%8A%20%D9%85%D8%AA%D8%A7%D8%AD.%20%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%3A%20...%20%D9%88%D8%A7%D9%84%D9%85%D9%83%D8%A7%D9%86%3A%20...">شوفي لو تاريخك متاح</a>
   <button class="menubtn" aria-label="القايمة" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
 </div></nav>
+
+<section class="veil-intro" aria-label="اسحبي الشريطة عشان تفتحي الطرحة">
+  <div class="pin">
+    <div class="scene">
+      <div class="side r"><img src="assets/lx_earring.jpg" alt=""></div>
+      <div class="side l"><img src="assets/lx_bw.jpg" alt=""></div>
+      <div class="arch"><img src="assets/lx_door.jpg" alt="عريس وعروسة عند باب خشب محفور"></div>
+      <p class="tag"><span class="latin">details matter</span><small><b>+١٥٠٠</b> عروسة وثّقنا يومها</small></p>
+    </div>
+    <div class="panel r"></div><div class="panel l"></div>
+    <div class="rod"></div>
+    <div class="words" aria-hidden="true"><span class="w r">كل تفصيلة</span><span class="w l">بتفرق</span></div>
+    <div class="ribbon"><div class="strap"></div><button class="ring" aria-label="اسحبي الشريطة عشان تفتحي الطرحة"><i></i></button></div>
+    <div class="hint">اسحبي الشريطة <em>↓</em></div>
+  </div>
+</section>
 
 <header class="hero"><div class="wrap">
   <div>
@@ -34,9 +55,9 @@
     <div class="stats"><div><b>+١٥٠٠</b>عروسة وثّقنا يومها</div><div><b>فرح واحد</b>لكل مصوّر في اليوم</div><div><b>مفتوح</b>عدد صورك</div></div>
   </div>
   <div class="stack" aria-hidden="true">
-    <img src="assets/hero_a.jpg" alt="">
-    <img src="assets/hero_b.jpg" alt="">
-    <img src="assets/hero_c.jpg" alt="">
+    <img src="assets/lx_light.jpg" alt="">
+    <img src="assets/lx_shoulder.jpg" alt="">
+    <img src="assets/lx_profile.jpg" alt="">
   </div>
 </div></header>
 
@@ -63,6 +84,47 @@
     <div class="card"><div class="n">٣</div><h3>«عايزة صور شبهي»</h3><p>من غير بوزات متخشّبة ولا توجيه طول الوقت. هتلاقي نفسك في الصور زي ما انتي، بس في أحلى يوم.</p></div>
   </div>
 </div></section>
+<section class="taste" id="taste"><div class="wrap">
+  <span class="kicker">صورتك… مين عايزها إزاي؟</span>
+  <h2>كل واحد عايز صورتك بشكل… وانتي؟</h2>
+  <p class="lead">نفس اللقطة، وكل واحد في الفرح شايفها بطريقته. دوسي على كل واحد وشوفي.</p>
+  <div class="ts-grid">
+    <div class="ts-photo" data-mode="one">
+      <img class="base" data-k="base" src="assets/taste_base.jpg?v=4" alt="عروسة بفستان مطرّز بالكريستال في صالون بستاير خضرا">
+      <img class="layer" data-k="makeup" src="assets/taste_makeup.jpg?v=4" alt="" loading="lazy">
+      <img class="layer" data-k="dress" src="assets/taste_dress.jpg?v=6" alt="" loading="lazy">
+      <img class="layer" data-k="photog" src="assets/taste_photog.jpg?v=6" alt="" loading="lazy">
+      <img class="groom" data-k="groom" src="assets/taste_groom.jpg?v=5" alt="العريس والعروسة ماشيين بعيد في ممر الجنينة" loading="lazy">
+      <img class="groom2" src="assets/taste_groom2.jpg?v=5" alt="لقطة درون للعريس بيجري وساحب العروسة" loading="lazy">
+      <span class="who"></span>
+    </div>
+    <div class="ts-side">
+      <div class="ts-tabs" role="tablist" aria-label="مين عايز الصورة إزاي">
+        <button type="button" role="tab" data-k="makeup" data-label="زوق الميكب أرتيست">الميكب أرتيست</button>
+        <button type="button" role="tab" data-k="dress" data-label="زوق مصمم الفستان">مصمم الفستان</button>
+        <button type="button" role="tab" data-k="photog" data-label="زوق المصوّر">المصوّر</button>
+        <button type="button" role="tab" data-k="groom" data-label="زوق العريس">العريس</button>
+        <button type="button" role="tab" class="you" data-k="you" data-label="زوقك انتي">انتي ✨</button>
+      </div>
+      <div class="ts-card">
+        <div class="ts-panel" data-k="makeup"><p class="ts-say">«عايزاها <b>ناعمة أوي</b>… البشرة تبان حرير.»</p><p class="ts-why">كأنها حاطة فلتر: بشرة ملساء، ولمعة، وخدود وردي.</p></div>
+        <div class="ts-panel" data-k="dress" hidden><p class="ts-say">«عايز <b>دراما</b>… ولمعة الفستان هي اللي تبيع.»</p><p class="ts-why">إضاءة سينمائية، والكريستال بيلمع لوحده، والخلفية تهدى عشان الفستان يبان.</p></div>
+        <div class="ts-panel" data-k="photog" hidden><p class="ts-say">«الألوان لازم <b>تمشي على قواعد</b>.»</p><p class="ts-why">الخلفية أخضر زيتي زي الرخام، والبشرة دافية زي خشب البلوط، والفاتح عاجي.</p>
+          <div class="ts-sw"><span><i style="background:#736B49"></i>Sage</span><span><i style="background:#9B653C"></i>Oak</span><span><i style="background:#F3D4B9"></i>Ivory</span></div></div>
+        <div class="ts-panel" data-k="groom" hidden><p class="ts-say">«هو بس <b>عايز ياخدها ويروّح</b> 😅»</p><p class="ts-why">ماسك إيدها وخلاص… والصور؟ بعدين.</p></div>
+        <div class="ts-panel" data-k="you" hidden><p class="ts-say">لكن إحنا بنهتم <b>انتي عايزة إيه</b>… ونعمله.</p>
+          <div class="ts-mix">
+            <label>نعومة<input type="range" name="makeup" min="0" max="100" value="40"><output></output></label>
+            <label>لمعة الفستان<input type="range" name="dress" min="0" max="100" value="35"><output></output></label>
+            <label>أخضر وخشب<input type="range" name="photog" min="0" max="100" value="30"><output></output></label>
+          </div>
+          <div class="ts-cta"><a class="btn gold ts-wa" href="#" target="_blank" rel="noopener">ابعتيلنا زوقك على الواتساب</a></div></div>
+      </div>
+      <p class="ts-note">الصورة لموديل متخيّلة معمولة بالذكاء الاصطناعي للتوضيح.</p>
+    </div>
+  </div>
+</div></section>
+
 <section id="how"><div class="wrap">
   <span class="kicker">إزاي بنشتغل</span>
   <h2>٤ خطوات بس… وانتي مرتاحة</h2>
@@ -74,6 +136,28 @@
   </div>
   <div class="deliv"><span class="tag">بعد الفرح · DELIVERY</span>
     <p><b>هايلايت من السيشن خلال أيام</b>، والباقي بعد ١٥ يوم. كله بلينك أونلاين تنزّلي منه كل صورك بجودة عالية.</p></div>
+</div></section>
+
+<section id="plan" class="dayplan"><div class="wrap">
+  <span class="kicker">جدول يومك في ثواني</span>
+  <h2>قوليلنا ميعاد الزفة… واليوم يترتّب لوحده</h2>
+  <p class="lead">اكتبي تاريخ فرحك وميعاد دخولك القاعة، وهنرتّبلك اليوم ساعة بساعة من الميكب لحد الزفة.</p>
+  <div class="dp-grid">
+    <div class="dp-form">
+      <label>تاريخ الفرح<input type="date" id="dp-date"></label>
+      <label>ميعاد الزفة<input type="time" id="dp-time" value="20:00"></label>
+      <div><label style="margin-bottom:8px">السيشن هيكون فين؟</label>
+        <div class="dp-chips" data-k="travel"><button type="button" data-v="0" aria-pressed="false">في القاعة نفسها</button><button type="button" data-v="30" aria-pressed="true">لوكيشن قريب</button><button type="button" data-v="60" aria-pressed="false">لوكيشن بعيد</button></div></div>
+      <div><label style="margin-bottom:8px">عايزة صور وانتي بتجهزي؟</label>
+        <div class="dp-chips" data-k="ready"><button type="button" data-v="1" aria-pressed="true">أيوه</button><button type="button" data-v="0" aria-pressed="false">لأ</button></div></div>
+      <p class="dp-count" aria-live="polite"></p>
+    </div>
+    <div>
+      <div class="dp-out" aria-live="polite"></div>
+      <div class="dp-actions"><a class="btn gold dp-wa" href="#" target="_blank" rel="noopener" hidden>ابعتيلنا جدولك على الواتساب</a></div>
+      <p class="dp-note">جدول مبدئي. بنظبطه معاكي حسب المكان، والنور، وزحمة الطريق.</p>
+    </div>
+  </div>
 </div></section>
 
 <section id="packages" class="packages"><div class="wrap">
@@ -131,5 +215,9 @@
   <p class="tiny">© 2026 RE ArtStudio. We use a private desktop tool to send our own studio videos to our official TikTok account as drafts; it is not offered to the public.</p>
 </div></footer>
 <a class="wafab" href="https://wa.me/201024724578?text=%D8%A3%D9%87%D9%84%D9%8B%D8%A7%20%F0%9F%A4%8D%20%D8%B9%D8%A7%D9%8A%D8%B2%D8%A9%20%D8%A3%D8%B9%D8%B1%D9%81%20%D9%84%D9%88%20%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%20%D9%81%D8%B1%D8%AD%D9%8A%20%D9%85%D8%AA%D8%A7%D8%AD.%20%D8%A7%D9%84%D8%AA%D8%A7%D8%B1%D9%8A%D8%AE%3A%20...%20%D9%88%D8%A7%D9%84%D9%85%D9%83%D8%A7%D9%86%3A%20...">واتساب 💬</a>
+<script src="curtain.js?v=2"></script>
+<script src="dayplan.js?v=1"></script>
+<script src="taste.js?v=4"></script>
+<script src="interact.js?v=1"></script>
 </body>
 </html>

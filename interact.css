@@ -1,0 +1,82 @@
+/* Site-wide interactions, same spirit as the veil intro: everything responds to her scroll and touch. */
+
+/* ribbon progress under the nav */
+.js .ribbon-progress{position:fixed;top:64px;inset-inline:0;height:3px;z-index:11;pointer-events:none;
+  background:linear-gradient(90deg,#c79b62,#E2B97A 50%,#c79b62);transform-origin:right center;transform:scaleX(var(--sp,0))}
+
+/* scroll reveal */
+.js .rv{opacity:0;translate:0 26px;transition:opacity .8s ease,translate .8s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;translate:0 0}
+
+/* gold thread under section titles */
+.js section h2.thread{position:relative;padding-bottom:14px}
+.js section h2.thread::after{content:"";position:absolute;bottom:0;inset-inline-start:0;width:84px;height:2px;
+  background:var(--gold2);transform:scaleX(0);transform-origin:right center;transition:transform 1s cubic-bezier(.2,.7,.2,1) .25s}
+.js section h2.thread.in::after{transform:scaleX(1)}
+.js .closing h2.thread::after{inset-inline:0;margin:auto}
+
+/* tilt (desktop pointers only) */
+.tilt{transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .25s ease}
+.tilt.moving{transition:transform .05s linear}
+
+/* hero stack parallax */
+.hero .stack img{translate:var(--px,0) var(--py,0);transition:translate .3s ease}
+
+/* bride voices: letters unfold */
+.js .voices figure.rv{opacity:0;translate:none;transform:perspective(900px) rotateX(-62deg);transform-origin:top center;
+  transition:opacity .7s ease,transform 1s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .voices figure.rv.in{opacity:1;transform:none}
+
+/* worry cards flip to the answer */
+.js .cards .card.flip{position:relative;padding:0;background:none;border:0;perspective:1100px;cursor:pointer;min-height:250px}
+.flip .inner{position:relative;height:100%;min-height:250px;transform-style:preserve-3d;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.flip.on .inner{transform:rotateY(180deg)}
+.flip .face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:18px;padding:28px;
+  display:flex;flex-direction:column}
+.flip .front{background:var(--paper);border:1px solid var(--line)}
+.flip .front h3{font-size:32px;margin-top:auto}
+.flip .front .tap{margin-top:14px;font-size:14px;color:var(--gold);font-weight:600}
+.flip .back{background:var(--ink);color:#F4E8D6;transform:rotateY(180deg);justify-content:center}
+.flip .back p{color:#E9D3B4;font-size:18px;margin:0}
+.flip .back .latin{color:var(--gold2);font-size:20px;margin-bottom:8px}
+.flip:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:18px}
+
+/* steps: a gold thread runs through them as she scrolls */
+.thread-line{position:relative;height:2px;margin-top:34px;background:var(--line)}
+.thread-line i{position:absolute;inset:0;background:var(--gold);transform-origin:right center;transform:scaleX(var(--tp,0))}
+.thread-line + .steps{margin-top:18px}
+.js .steps>div{transition:border-color .4s,background .4s}
+.js .steps>div b{transition:background .4s,color .4s}
+.js .steps>div.lit{border-color:var(--gold)}
+.js .steps>div.lit b{background:var(--gold2);color:var(--ink)}
+
+/* book cover opens toward her */
+.js .bookband>a,.js .bhero .wrap>img{display:block;perspective:1200px}
+.js .bookband img,.js .bhero .wrap>img{transform:perspective(1200px) rotateY(calc(var(--bo,1) * 24deg)) rotateX(calc(var(--bo,1) * 4deg));
+  transform-origin:right center;transition:transform .15s linear}
+
+/* photos develop like prints */
+.js .develop{filter:sepia(.7) blur(6px) brightness(1.15);opacity:.35;transition:filter 1.4s ease,opacity 1.2s ease;transition-delay:var(--d,0s)}
+.js .develop.in{filter:none;opacity:1}
+
+/* faq answers slide in */
+details[open] p{animation:qin .4s ease}
+
+/* closing words land one by one */
+.js .closing h2 .wd{display:inline-block;opacity:0;translate:0 .4em;transition:opacity .6s ease,translate .6s ease;transition-delay:var(--d,0s)}
+.js .closing h2.in .wd{opacity:1;translate:0 0}
+
+@media(prefers-reduced-motion:reduce){
+  .js .rv,.js .voices figure.rv,.js .develop,.js .closing h2 .wd{opacity:1;translate:none;transform:none;filter:none;transition:none}
+  .js .bookband img,.js .bhero .wrap>img{transform:none}
+  .tilt{transform:none}
+  .flip .inner{transition:none}
+}
+/* phone polish */
+@media(max-width:760px){
+  .js .cards .card.flip,.flip .inner{min-height:190px}
+  .flip .front h3{font-size:28px}
+  .stats{gap:18px}
+  .stats b{font-size:28px}
+}
+html,body{overflow-x:clip}

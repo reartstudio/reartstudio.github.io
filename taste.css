@@ -1,0 +1,52 @@
+/* «كل واحد عايزها بشكل… وانتي؟» — same frame, each person's taste, then her own mix. */
+.taste{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.ts-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center;margin-top:36px}
+@media(max-width:860px){.ts-grid{grid-template-columns:1fr;gap:24px}}
+.ts-photo{position:relative;aspect-ratio:896/1200;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(43,35,32,.55);background:#2B2320;max-height:78vh;margin-inline:auto;width:100%}
+.ts-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .7s ease,transform .7s ease}
+.ts-photo img.base{opacity:1}
+.ts-photo img.on{opacity:1}
+.ts-photo[data-mode=mix] img.layer{transition:opacity .15s linear}
+.ts-photo img.groom{transform:scale(1.04)}
+.ts-photo img.groom.on{transform:none}
+.ts-photo .who{position:absolute;bottom:14px;inset-inline-start:14px;padding:6px 14px;border-radius:99px;background:rgba(43,35,32,.72);color:#F8F1E1;font-size:14px;font-weight:600}
+
+.ts-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.ts-tabs button{font:600 15px "IBM Plex Sans Arabic",sans-serif;padding:10px 18px;border-radius:99px;border:1.5px solid var(--line);
+  background:var(--cream);color:var(--ink);cursor:pointer;transition:all .15s}
+.ts-tabs button:hover{border-color:var(--ink)}
+.ts-tabs button[aria-selected=true]{background:var(--ink);border-color:var(--ink);color:#F8F1E1}
+.ts-tabs button.you{border-color:var(--gold)}
+.ts-tabs button.you[aria-selected=true]{background:var(--gold2);border-color:var(--gold2);color:var(--ink)}
+.ts-tabs button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+
+.ts-card{margin-top:22px;min-height:220px}
+.ts-say{font:400 clamp(26px,3vw,36px)/1.45 Amiri,serif;margin:0;color:var(--ink)}
+.ts-say b{color:var(--gold)}
+.ts-why{color:var(--muted);margin:10px 0 0;font-size:16px}
+.ts-sw{display:flex;gap:10px;margin-top:16px}
+.ts-sw span{display:grid;gap:6px;font-size:12px;color:var(--muted);text-align:center}
+.ts-sw i{display:block;width:64px;height:44px;border-radius:10px;border:1px solid var(--line)}
+
+.ts-mix{display:grid;gap:16px;margin-top:18px}
+.ts-mix label{display:grid;grid-template-columns:110px 1fr 44px;align-items:center;gap:12px;font-weight:600;font-size:15px}
+.ts-mix output{font-size:14px;color:var(--muted);text-align:center}
+.ts-mix input[type=range]{width:100%;accent-color:var(--gold);height:28px}
+.ts-mix input[type=range]:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.ts-cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.ts-note{font-size:13px;color:var(--muted);margin-top:14px}
+.ts-panel{animation:qin .45s ease}
+@media(prefers-reduced-motion:reduce){.ts-photo img{transition:none}.ts-panel{animation:none}}
+/* groom: walking away, then the drone catches him running off with her */
+.ts-photo img.groom2{z-index:3;opacity:0;transition:opacity .9s ease}
+.ts-photo[data-k=groom] img.groom2.on{opacity:1}
+/* phone: tabs sit above the photo so she sees it change when she taps */
+@media(max-width:860px){
+  .ts-side{display:contents}
+  .ts-grid{display:flex;flex-direction:column;gap:16px}
+  .ts-tabs{order:1;position:sticky;top:72px;z-index:5;padding:8px 0;background:var(--paper)}
+  .ts-tabs button{padding:8px 14px;font-size:14px}
+  .ts-photo{order:2;width:min(100%,calc(62svh * 896 / 1200));max-height:none;align-self:center;aspect-ratio:896/1200}
+  .ts-card{order:3;margin-top:4px;min-height:0}
+  .ts-note{order:4;margin-top:0}
+}
