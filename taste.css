@@ -1,3 +1,4 @@
+.ts-tabs .ts{display:none}
 /* «كل واحد عايزها بشكل… وانتي؟» — same frame, each person's taste, then her own mix. */
 .taste{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .ts-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:44px;align-items:center;margin-top:36px}
@@ -44,8 +45,16 @@
 @media(max-width:860px){
   .ts-side{display:contents}
   .ts-grid{display:flex;flex-direction:column;gap:16px}
-  .ts-tabs{order:1;position:sticky;top:72px;z-index:5;padding:8px 0;background:var(--paper)}
-  .ts-tabs button{padding:8px 14px;font-size:14px}
+  /* tabs live in a dock at the bottom of the screen, where her thumb already is */
+  .ts-tabs{order:5;position:sticky;bottom:calc(10px + env(safe-area-inset-bottom));z-index:6;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    gap:6px;padding:7px;margin-inline:-4px;border-radius:99px;background:rgba(43,35,32,.86);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+    box-shadow:0 14px 34px -12px rgba(0,0,0,.55),0 0 0 1px rgba(226,185,122,.25) inset}
+  .ts-tabs::-webkit-scrollbar{display:none}
+  .ts-tabs .tl{display:none}.ts-tabs .ts{display:inline}
+  .ts-tabs button{flex:1 1 auto;min-height:42px;padding:0 10px;font-size:14px;white-space:nowrap;background:transparent;border-color:transparent;color:#EADBC4}
+  .ts-tabs button[aria-selected=true]{background:#F4E8D6;border-color:#F4E8D6;color:var(--ink)}
+  .ts-tabs button.you{border-color:rgba(226,185,122,.55)}
+  .ts-tabs button.you[aria-selected=true]{background:var(--gold2);border-color:var(--gold2);color:var(--ink)}
   .ts-photo{order:2;width:min(100%,calc(62svh * 896 / 1200));max-height:none;align-self:center;aspect-ratio:896/1200}
   .ts-card{order:3;margin-top:4px;min-height:0}
   .ts-note{order:4;margin-top:0}

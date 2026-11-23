@@ -160,7 +160,7 @@
     es.forEach(e => e.isIntersecting ? blockers.add(e.target) : blockers.delete(e.target));
     upd();
   });
-  document.querySelectorAll('a[href*="wa.me"]:not(.wafab), .flipbook, .veil-intro, .dp-wa, .ts-wa')
+  document.querySelectorAll('a[href*="wa.me"]:not(.wafab), .flipbook, .veil-intro, .dp-wa, .ts-wa, .ts-grid')
     .forEach(el => { if (!el.closest('nav')) io.observe(el); });
   function upd() { fab.classList.toggle('show', scrollY > innerHeight * .8 && blockers.size === 0); }
   addEventListener('scroll', upd, { passive: true });
