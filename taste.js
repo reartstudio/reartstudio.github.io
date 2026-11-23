@@ -26,7 +26,7 @@
     photo.dataset.k = k;
     root.dataset.k = k;
     clearTimeout(groomTimer); g2.classList.remove('on');
-    if (k === 'groom') groomTimer = setTimeout(() => g2.classList.add('on'), 340);   // ~10 frames of the near shot, then they're at the gate
+    if (k === 'groom') groomTimer = setTimeout(() => g2.classList.add('on'), 1000);   // about a second on the near shot, then they're at the gate
   }
   tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.k)));
   root.querySelector('.ts-tabs').addEventListener('keydown', e => {
