@@ -27,8 +27,37 @@
 <link rel="stylesheet" href="voices.css?v=1">
 <link rel="stylesheet" href="texture.css?v=1">
 <script>document.documentElement.classList.add('js')</script>
+<style>
+/* Loader: covers the page until the three intro photos load (max 6 s). Fades in after 0.2 s so a cached visit never flashes it. */
+#loader{display:none}
+.js #loader{display:flex;position:fixed;inset:0;z-index:9999;background:#2B2320;flex-direction:column;align-items:center;justify-content:center;gap:22px;opacity:0;animation:ldIn .35s .2s forwards;transition:opacity .5s,visibility .5s}
+#loader img{width:120px;height:auto;opacity:.92}
+#loader .bar{width:140px;height:2px;background:rgba(226,185,122,.18);border-radius:2px;overflow:hidden}
+#loader .bar i{display:block;height:100%;width:0;background:#E2B97A;transition:width .35s ease}
+#loader.done{opacity:0!important;visibility:hidden;animation:none}
+@keyframes ldIn{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.js #loader{animation:none;opacity:1}#loader .bar i{transition:none}}
+</style>
+<link rel="preload" as="image" href="assets/logo_white.png">
+<link rel="preload" as="image" href="assets/lx_door.jpg">
 </head>
 <body>
+<div id="loader" role="status" aria-label="بنحمّل الصور"><img src="assets/logo_white.png" alt=""><div class="bar"><i></i></div></div>
+<script>
+(() => {
+  const ld = document.getElementById('loader'), bar = ld.querySelector('i');
+  const imgs = [...document.querySelectorAll('.veil-intro img')];
+  let n = 0, shut = false;
+  const close = () => { if (shut) return; shut = true; bar.style.width = '100%'; setTimeout(() => { ld.classList.add('done'); setTimeout(() => ld.remove(), 600); }, 250); };
+  const tick = () => { n++; bar.style.width = Math.round(n / imgs.length * 100) + '%'; if (n >= imgs.length) close(); };
+  document.addEventListener('DOMContentLoaded', () => {
+    imgs.splice(0, imgs.length, ...document.querySelectorAll('.veil-intro img'));
+    if (!imgs.length) return close();
+    imgs.forEach(im => im.complete ? tick() : (im.addEventListener('load', tick, { once: true }), im.addEventListener('error', tick, { once: true })));
+  });
+  setTimeout(close, 6000);
+})();
+</script>
 
 <nav><div class="wrap">
   <a class="logo" href="index.html" aria-label="RE ArtStudio"><img src="assets/logo_brown.png" alt="RE ArtStudio"></a>
