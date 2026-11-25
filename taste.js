@@ -12,7 +12,8 @@
   let groomTimer = null;
 
   // her tab: no photo, no sliders, just what we say and a WhatsApp line
-  wa.href = 'https://wa.me/201024724578?text=' + encodeURIComponent('أهلًا 🤍 عايزة أحكيلكم أنا بحب صوري تبقى إزاي، وعايزة أعرف لو تاريخ فرحي متاح.');
+  // her tab: the message opens with a line for her to finish in her own words
+  wa.href = 'https://wa.me/201024724578?text=' + encodeURIComponent('أهلًا 🤍 ده زوقي في الصور:\n- بحب الصور تبقى: \n- أكتر حاجة مش عايزاها: \n- تاريخ فرحي: \nعايزة أعرف لو التاريخ متاح.');
 
   function show(k) {
     tabs.forEach(t => t.setAttribute('aria-selected', t.dataset.k === k));
